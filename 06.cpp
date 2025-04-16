@@ -12,11 +12,11 @@ int main() {
 
     
     // Print the types of the variable
-    cout << "Variable 'a' is of type: " << typeid(a).name() << std::endl;
-    cout << "Variable 'b' is of type: " << typeid(b).name() << std::endl;
-    cout << "Variable 'c' is of type: " << typeid(c).name() << std::endl;
-    cout << "Variable 'e' is of type: " << typeid(e).name() << std::endl;
-    cout << "Variable 'd' is of type: " << typeid(d).name() << std::endl;
+    cout << "Variable 'a' is of type: " << typeid(a).name() << endl;
+    cout << "Variable 'b' is of type: " << typeid(b).name() << endl;
+    cout << "Variable 'c' is of type: " << typeid(c).name() << endl;
+    cout << "Variable 'e' is of type: " << typeid(e).name() << endl;
+    cout << "Variable 'd' is of type: " << typeid(d).name() << endl;
 
     return 0;
 }
