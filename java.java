@@ -43,8 +43,7 @@ isValid = false;
 System.out.println("The expression is " + (isValid ? "valid." : "invalid."));
 }
 }
-Lab 2- Conversion of infix notation to postfix notation.
-Program
+//Lab 2- Conversion of infix notation to postfix notation Program
 import java.util.*;
 
 public class Lab2 {
@@ -93,8 +92,7 @@ String postfix = conversion(infix);
 System.out.println("Postfix expression: " + postfix);
 }
 }
-Lab-3 Program to Check valid If statements in C
-program and report errors to user.
+//Lab-3 Program to Check valid If statements in C program and report errors to user.
 import java.util.*;
 
 public class shwet3 {
@@ -124,8 +122,7 @@ System.out.println("Invalid if condition ");
 }
 }
 }
-Lab-4 Write a program that will create and display
-content of Symbol table.
+//Lab-4 Write a program that will create and display content of Symbol table
 import java.util.*;
 
 class Symbol {
@@ -169,12 +166,9 @@ public class shwet4 {
                symbol.display();
           }
      }
-}Lab 5
 
-Program to
-extract all
-tokens from code.Program
-.
+}//Lab 5 Program to extract all tokens from code.Program
+
 import java.util.*;
 import java.util.regex.*;
 
