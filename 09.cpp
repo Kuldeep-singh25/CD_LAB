@@ -23,7 +23,7 @@ int main() {
 
     while (getline(file, line)) {
         lineCount++;
-        charCount += line.length(); // +1 for newline character
+        charCount += line.length(); 
         istringstream iss(line);
         string word;
         while (iss >> word) {
