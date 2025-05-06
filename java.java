@@ -214,3 +214,160 @@ public class Lab5 {
           System.out.printf("%-20s %-40s\n", tokenType, tokens.toString());
      }
 }
+//6
+import java.util.*;
+
+public class Main {
+    public static String typeExpand(String ch) {
+        switch (ch) {
+            case "Integer": return "int";
+            case "Float": return "float";
+            case "Double": return "double";
+            case "Character": return "char";
+            case "Boolean": return "bool";
+            default: return ch;
+        }
+    }
+
+    public static void main(String[] args) {
+        int a = 42;
+        float b = 0.052f;
+        double c = 2.9925;
+        char d = 'x';
+        boolean e = true;
+
+        String tch;
+
+        tch = ((Object)a).getClass().getSimpleName();
+        System.out.println("The type of 'a' is : " + typeExpand(tch));
+
+        tch = ((Object)(a + b)).getClass().getSimpleName();
+        System.out.println("The type of 'a+b' is : " + typeExpand(tch));
+
+        tch = ((Object)c).getClass().getSimpleName();
+        System.out.println("The type of 'c' is : " + typeExpand(tch));
+
+        tch = ((Object)d).getClass().getSimpleName();
+        System.out.println("The type of 'd' is : " + typeExpand(tch));
+
+        tch = ((Object)e).getClass().getSimpleName();
+        System.out.println("The type of 'e' is : " + typeExpand(tch));
+
+        typeExpand(tch); // unused call
+    }
+} 
+//7
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Symbol {
+    String name;
+    String type;
+    String scope;
+
+    Symbol(String name, String type, String scope) {
+        this.name = name;
+        this.type = type;
+        this.scope = scope;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Symbol> table = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        String inp;
+        boolean isLocal = false;
+
+        System.out.println("Enter code input (type \"END\" at last to stop):");
+        while (true) {
+            inp = scanner.nextLine();
+            if (inp.equals("END")) break;
+
+            if (inp.equals("{")) {
+                isLocal = true;
+            } else if (inp.equals("}")) {
+                isLocal = false;
+            } else {
+                int space = inp.indexOf(' ');
+                int semi = inp.indexOf(';');
+
+                if (space != -1 && semi != -1) {
+                    String type = inp.substring(0, space);
+                    String name = inp.substring(space + 1, semi);
+                    String scope = isLocal ? "local" : "global";
+                    table.add(new Symbol(name, type, scope));
+                }
+            }
+        }
+
+        System.out.println("\n--- Symbol Table ---");
+        for (Symbol sym : table) {
+            System.out.println("Name: " + sym.name + ", Type: " + sym.type + ", Scope: " + sym.scope);
+        }
+    }
+}
+//8
+import java.util.Scanner;
+
+public class CommentChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        boolean cOpen = false;
+
+        System.out.println("Enter code input (type \"END\" at last to stop):");
+        while (true) {
+            String inp = sc.nextLine();
+            if (inp.equals("END")) break;
+
+            for (int i = 0; i < inp.length() - 1; i++) {
+                if (inp.charAt(i) == '/' && inp.charAt(i + 1) == '*') {
+                    cOpen = true;
+                }
+                if (inp.charAt(i) == '*' && inp.charAt(i + 1) == '/') {
+                    cOpen = false;
+                }
+            }
+        }
+
+        if (cOpen) {
+            System.out.println("Invalid Comments in Code.");
+        } else {
+            System.out.println("All Comments (if any) are valid.");
+        }
+
+        sc.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class CommentChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        boolean cOpen = false;
+
+        System.out.println("Enter code input (type \"END\" at last to stop):");
+        while (true) {
+            String inp = sc.nextLine();
+            if (inp.equals("END")) break;
+
+            for (int i = 0; i < inp.length() - 1; i++) {
+                if (inp.charAt(i) == '/' && inp.charAt(i + 1) == '*') {
+                    cOpen = true;
+                }
+                if (inp.charAt(i) == '*' && inp.charAt(i + 1) == '/') {
+                    cOpen = false;
+                }
+            }
+        }
+
+        if (cOpen) {
+            System.out.println("Invalid Comments in Code.");
+        } else {
+            System.out.println("All Comments (if any) are valid.");
+        }
+
+        sc.close();
+    }
+}
